@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import axios  from 'axios';
-import Apiitem from './components/Apiitem';
+//import Apiitem from './components/Apiitem';
 
 
 const api={
@@ -10,45 +10,63 @@ const api={
 }
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      githubData: [],
+    state = {
       query: "",
+      data: [],
+      filteredData: []
+    };
+  
+    handleInputChange = event => {
+      const query = event.target.value;
+  
+      this.setState(prevState => {
+        console.log(prevState.data.login.toLowerCase().includes(query.toLowerCase()))
+        const filteredData = prevState.data.login.toLowerCase().includes(query.toLowerCase());
+  
+        return {
+          query,
+          filteredData
+        };
+      });
+    };
+  
+    getData = () => {
+      axios.get( 
+        api.baseUrl +
+        "/users/" + 
+        api.name_user)
+        .then(response => response.data)
+        .then(data => {
+          const { query } = this.state;
+          const filteredData = data.login.toLowerCase().includes(query.toLowerCase());
+  
+          this.setState({
+            data,
+            filteredData
+          });
+        });
+    };
+  
+    componentWillMount() {
+      this.getData();
+    }
+  
+    render() {
+      return (
+        <div className="searchForm">
+          <form>
+            <input
+              placeholder="Search for..."
+              value={this.state.query}
+              onChange={this.handleInputChange}
+            />
+          </form>
+          <div>
+            {this.state.filteredData}
+          </div>
+        </div>
+      );
     }
   }
-
-  componentDidMount(){ 
-    axios
-    .get(
-      api.baseUrl +
-      "/users/" + 
-      api.name_user)
-    .then( (res) => {
-      console.log("infos da API ", res.data);
-      this.setState({githubData: res.data});
-    });
-  } 
-
-  render(){
-    console.log(this.state.githubData)
-    const githubData = this.state.githubData;
-    return (
-      <div className="Container App">
-        <div className="row">
-          <div className="col-md-12"key={githubData.id}>
-
-            Usuário: {githubData.login}<br/>
-            Imagem: {githubData.avatar_url}<br/>
-            Organização: {githubData.company}<br/>
-            Seguidores: {githubData.followers}<br/>
-            Localização: {githubData.location}<br/>
-            Quantidade de votos(rates): {githubData.followers}<br/>
-          </div> 
-        </div>
-      </div>
-    );
-  }
-}
 
 export default App;
