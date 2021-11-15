@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import axios  from 'axios';
-import List_User from './components/List_User';
+import ListUser from '../components/ListUser';
 
 const api={
   baseUrl: "https://api.github.com",
@@ -12,7 +12,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      searchQuery: ""
+      searchQuery: "",
+      data: {}
     }
   }
 
@@ -30,22 +31,22 @@ class App extends Component {
       "/users/" + 
       searchQuery)
       .then(response => 
-       console.log(response.data),
-        //this.setState({
-        //  data: response.data,
-        //})
+        this.setState({
+          data: response.data
+        })
       );
   }
 
   render() {
+    console.log(this.state.data)
     return  (
       <div>
         <input type="text" value={this.state.searchQuery} onChange={this.handleInputChanged.bind(this)}/>
         <button onClick={this.handleButtonClicked.bind(this)}>
-          Submit
+          Consultar
         </button>
-
-        <List_User/>
+        
+        <ListUser user={this.state.data}/>
       </div>
     );
   }
