@@ -14,6 +14,7 @@ class ListUser extends Component {
             <p>Seguidores: {this.props.user.followers}</p>
             <p>Lozalização: {this.props.user.location}</p>
             <p>Quantidade de Votos: {this.props.user.following}</p>
+            <p>Repositórios do usuário: {this.props.user.following}</p>
         </div>    
     );
     }

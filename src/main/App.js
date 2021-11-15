@@ -41,6 +41,7 @@ class App extends Component {
     const user = {}
     return  (
       <div>
+        <br/>
         <input type="text" value={this.state.searchQuery} onChange={this.handleInputChanged.bind(this)}/>
         <button onClick={this.handleButtonClicked.bind(this)}>
           Consultar
