@@ -13,7 +13,7 @@ class App extends Component {
 
     this.state = {
       searchQuery: "",
-      data: {}
+      data: {},
     }
   }
 
@@ -31,14 +31,14 @@ class App extends Component {
       "/users/" + 
       searchQuery)
       .then(response => 
-        this.setState({
-          data: response.data
+        this.setState(() => {
+          return {data: response.data}
         })
       );
   }
 
   render() {
-    console.log(this.state.data)
+    const user = {}
     return  (
       <div>
         <input type="text" value={this.state.searchQuery} onChange={this.handleInputChanged.bind(this)}/>
@@ -46,7 +46,8 @@ class App extends Component {
           Consultar
         </button>
         
-        <ListUser user={this.state.data}/>
+        <br/>
+        <ListUser user={this.state.data} />
       </div>
     );
   }

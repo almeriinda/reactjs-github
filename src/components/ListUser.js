@@ -1,21 +1,22 @@
 import React, {Component} from 'react';
 
-class List_User extends Component {
+class ListUser extends Component {
     
-    render(user) {
-        console.log(user)
+    render() {
         return  (
         <div>
-            <p>Imagem: </p>
-            <p>Usuário: </p>
-            <p>Organização: </p>
-            <p>Seguidores: </p>
-            <p>Lozalização: </p>
-            <p>Quantidade de Votos: </p>
+            <br/>
+            <figure>
+                <img src={this.props.user.avatar_url} alt="Meu Gravatar"></img>
+            </figure>
+            <p>Usuário: {this.props.user.name}</p>
+            <p>Organização: {this.props.user.company}</p>
+            <p>Seguidores: {this.props.user.followers}</p>
+            <p>Lozalização: {this.props.user.location}</p>
+            <p>Quantidade de Votos: {this.props.user.following}</p>
         </div>    
     );
     }
 }    
 
-export default List_User;
-
+export default ListUser;
