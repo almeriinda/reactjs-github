@@ -38,7 +38,6 @@ class App extends Component {
   }
 
   render() {
-    const user = {}
     return  (
       <div>
         <br/>

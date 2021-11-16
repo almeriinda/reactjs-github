@@ -1,23 +1,34 @@
 import React, {Component} from 'react';
-
-class ListUser extends Component {
+import ListUserRepo from './ListUserRepo';
+class ListUser extends Component {  
     
     render() {
+      if (this.props.user.login !== undefined){
+        const user = this.props.user;
         return  (
-        <div>
+          <div>
             <br/>
             <figure>
-                <img src={this.props.user.avatar_url} alt="Meu Gravatar"></img>
+                <img src={user.avatar_url}></img>
             </figure>
-            <p>Usuário: {this.props.user.name}</p>
-            <p>Organização: {this.props.user.company}</p>
-            <p>Seguidores: {this.props.user.followers}</p>
-            <p>Lozalização: {this.props.user.location}</p>
-            <p>Quantidade de Votos: {this.props.user.following}</p>
-            <p>Repositórios do usuário: {this.props.user.following}</p>
-        </div>    
-    );
-    }
+            <p>Usuário: {user.name}</p>
+            <p>Organização: {user.company}</p>
+            <p>Seguidores: {user.followers}</p>
+            <p>Lozalização: {user.location}</p>
+            <p>Quantidade de Votos: {user.following}</p>
+            <p>Repositórios do usuário: {user.following}</p>
+
+            <ListUserRepo user={user}/>  
+          </div>  
+        );
+      }else{
+      return  (
+        <div>
+          Não foi encontrado nenhum usuário do github com este nome!
+        </div>
+        );
+      }
+  }
 }    
 
 export default ListUser;
