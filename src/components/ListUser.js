@@ -3,6 +3,7 @@ import ListUserRepo from './ListUserRepo';
 class ListUser extends Component {  
     
     render() {
+      console.log(this.props.user.map(user => {console.log (user)  }))
       if (this.props.user.map(user => user.login !== undefined)){
         return  (
           this.props.user.map(user => 
@@ -16,7 +17,7 @@ class ListUser extends Component {
             <p>Seguidores: {user.followers}</p>
             <p>Lozalização: {user.location}</p>
             <p>Quantidade de Votos: {user.following}</p>
-            <p>Repositórios do usuário: {user.following}</p>
+            <p>Repositórios do usuário: {user.following}</p>  
 
             <ListUserRepo user={user}/>  
           </div>  

@@ -11,12 +11,11 @@ function ListUserRepo(props) {
     );
     const repos = data;
     setRepo(repos);
-    console.log(props.user)
   };
 
   useEffect(() => {
     fetchRepos();
-  }, [repos]);
+  }, []);
 
   
   return (
