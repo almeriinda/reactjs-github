@@ -1,19 +1,15 @@
 import React, {Component} from 'react';
 import './App.css';
-import axios  from 'axios';
 import ListUser from '../components/ListUser';
-
-const api={
-  baseUrl: "https://api.github.com",
-}
-
+import {get_user_by_name} from '../services/Api';
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       searchQuery: "",
-      data: {},
+      data: [],
+      user: []
     }
   }
 
@@ -26,15 +22,10 @@ class App extends Component {
   handleButtonClicked() {
     var searchQuery = this.state.searchQuery;
 
-    axios.get( 
-      api.baseUrl +
-      "/users/" + 
-      searchQuery)
-      .then(response => 
-        this.setState(() => {
-          return {data: response.data}
-        })
-      );
+    get_user_by_name(
+      searchQuery).then( result => this.setState(() => {
+        return {data: result}
+      }));
   }
 
   render() {

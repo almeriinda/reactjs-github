@@ -3,9 +3,9 @@ import ListUserRepo from './ListUserRepo';
 class ListUser extends Component {  
     
     render() {
-      if (this.props.user.login !== undefined){
-        const user = this.props.user;
+      if (this.props.user.map(user => user.login !== undefined)){
         return  (
+          this.props.user.map(user => 
           <div>
             <br/>
             <figure>
@@ -20,7 +20,7 @@ class ListUser extends Component {
 
             <ListUserRepo user={user}/>  
           </div>  
-        );
+        ));
       }else{
       return  (
         <div>
