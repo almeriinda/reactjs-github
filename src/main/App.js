@@ -32,14 +32,15 @@ class App extends Component {
       "/users/" + 
       searchQuery)
       .then(response => 
-        this.setState(() => {
-          return {data: response.data}
+        this.setState({
+          data: response.data
         })
       );
   }
 
 
   render() {
+    console.log(this.state)
     return  (
       <div> 
         <br/>

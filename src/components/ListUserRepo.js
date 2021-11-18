@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
 function ListUserRepo(props) {
-  console.log(props.user.login)
+  console.log(props)
   const [repos, setRepo] = useState([]);
   
   const fetchRepos = async () => {

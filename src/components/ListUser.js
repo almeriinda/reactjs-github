@@ -4,6 +4,7 @@ class ListUser extends Component {
     
     render() {
       const user = this.props.user;
+      console.log(user)
       if (user !== undefined){
         return  (
           <div>
