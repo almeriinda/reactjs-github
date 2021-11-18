@@ -17,3 +17,4 @@
  - yarn install
 # Iniciando o servidor do projecto
  - yarn start
+ - **Obs:** caso deseje copie o endereço http://localhost:3000/ e cole em seu navegador.
