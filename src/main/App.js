@@ -40,7 +40,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state)
     return  (
       <div> 
         <br/>
@@ -50,7 +49,8 @@ class App extends Component {
         </button>
         
         <br/>
-        <ListUser user={this.state.data} />
+        {this.state.data.length !== undefined ? 'Favor informar um login de usuário' : <ListUser user={this.state.data} />}
+
       </div>
     );
   }
