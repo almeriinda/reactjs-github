@@ -30,7 +30,7 @@ class App extends Component {
     axios.get( 
       api.baseUrl +
       "/users/" + 
-      searchQuery)
+      searchQuery.toLowerCase())
       .then(response => 
         this.setState({
           data: response.data
