@@ -107,3 +107,7 @@ input{
   margin-left: 25px;
   background-color: rgba(16, 169, 240, 0.726);
 }
+
+.aligncentertext {
+  text-align: center;
+}

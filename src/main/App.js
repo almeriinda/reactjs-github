@@ -49,8 +49,9 @@ class App extends Component {
         </button>
         
         <br/>
-        {this.state.data.length !== undefined ? 'Favor informar um login de usuário' : <ListUser user={this.state.data} />}
-
+        <div class="aligncentertext">
+          {this.state.data.length !== undefined ? 'Favor informar um login de usuário' : <ListUser user={this.state.data} />}
+        </div>
       </div>
     );
   }
