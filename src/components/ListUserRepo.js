@@ -15,7 +15,7 @@ function ListUserRepo(props) {
 
   useEffect(() => {
     fetchRepos();
-  }, []);
+  }, [repos]);
 
   
   return (
