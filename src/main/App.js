@@ -30,10 +30,10 @@ class App extends Component {
 
   render() {
     return  (
-      <div>
+      <div> 
         <br/>
-        <input type="text" value={this.state.searchQuery} onChange={this.handleInputChanged.bind(this)}/>
-        <button onClick={this.handleButtonClicked.bind(this)}>
+        <input class="centralizasearch" type="text" placeholder="Buscar Usuário GitHub" value={this.state.searchQuery} onChange={this.handleInputChanged.bind(this)}/>
+        <button class="btnleft" onClick={this.handleButtonClicked.bind(this)}>
           Consultar
         </button>
         

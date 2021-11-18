@@ -19,10 +19,9 @@ function ListUserRepo(props) {
 
   
   return (
-    <div>
-      <h6>Lista de Repositórios</h6>
+    <div class="wrapper">
       {repos.map((repo) => (
-        <p key={repo.id}>{repo.name}</p>
+        <button class="btn_repo" key={repo.id}>{repo.name}</button>
       ))}
     </div>
   );

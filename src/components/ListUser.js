@@ -9,17 +9,28 @@ class ListUser extends Component {
           this.props.user.map(user => 
           <div>
             <br/>
+            <table class="centralizar">
+            <tr>
             <figure>
-                <img src={user.avatar_url}></img>
+                <img class="borderimg" src={user.avatar_url}></img>
             </figure>
+            <td>
+              <div class="marginleft">
             <p>Usuário: {user.name}</p>
             <p>Organização: {user.company}</p>
             <p>Seguidores: {user.followers}</p>
-            <p>Lozalização: {user.location}</p>
+            <p>Localização: {user.location}</p>
             <p>Quantidade de Votos: {user.following}</p>
-            <p>Repositórios do usuário: {user.following}</p>  
-
+            <p>Repositórios do usuário: {user.following}</p> 
+            </div>
+            </td>
+            </tr>
+            </table> 
+            <div class="centralizar2">
+            <h3 class="fontbold">Lista de Repositórios:</h3>
+            <br />
             <ListUserRepo user={user}/>  
+            </div>
           </div>  
         ));
       }else{
