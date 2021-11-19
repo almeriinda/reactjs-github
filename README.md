@@ -18,3 +18,4 @@
 # Iniciando o servidor do projecto
  - yarn start
  - **Obs:** caso deseje copie o endereço http://localhost:3000/ e cole em seu navegador.
+ - Disponível via Netlify: https://6196e7bcc59adf007ca3df16--hungry-kalam-b1a436.netlify.app/
